@@ -2,9 +2,10 @@
 
 local keys = {
 	preset = 'none',
-	['<Down>'] = {'select_next', 'fallback_to_mappings'},
-	['<Up>'] = {'select_prev', 'fallback_to_mappings'},
-	['<Tab>'] = { 'accept', 'fallback' },
+
+	['<Down>'] = {'select_next', 'fallback'},
+	['<Up>'] = {'select_prev', 'fallback'},
+	['<Tab>'] = { 'select_and_accept', 'fallback' },
 
 	['<C-space>'] = { 'hide', 'fallback' },
 	['<C-e>'] = { 'show', 'show_documentation', 'hide_documentation' },
@@ -25,7 +26,7 @@ return {
 	opts = {
 		keymap = keys,
 		completion = {
-			ghost_text = { enabled = true },
+			list = { selection = { auto_insert = false, }, },
 			menu = {
 				border = 'rounded',
 				draw = {
@@ -43,6 +44,7 @@ return {
 					border = 'rounded',
 				},
 			},
+			ghost_text = { enabled = true },
 		},
 		appearance = {
 			use_nvim_cmp_as_default = true,

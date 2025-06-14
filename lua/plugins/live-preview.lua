@@ -4,15 +4,15 @@ return {
 	ft = {
 		'html',
 		'htm',
-		'markdown',
-		'md',
 		'svg',
 		'svgz',
+		'markdown',
+		'md',
 	},
 	config = function()
 		require('livepreview.config').set({
 			dynamic_root = false,
 		})
-		vim.keymap.set('n', '<leader>tp', function() vim.cmd('LivePreview start') end, { desc = 'Live [P]review' })
+		vim.keymap.set('n', '<leader>tp', function() vim.cmd('LivePreview start') end, { desc = '[P]review Live' })
 	end,
 }

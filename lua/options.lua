@@ -29,7 +29,7 @@ vim.g.autoformat = false
 
 -- Whitespace Hints
 vim.opt.list = true
-vim.opt.listchars = 'tab:┃ ,trail:-,multispace:-,nbsp:+'
+vim.opt.listchars = 'tab:┃ ,trail:-,multispace:-,leadmultispace:┃...,nbsp:+'
 vim.opt.showbreak = '--> '
 
 -- Wrapping

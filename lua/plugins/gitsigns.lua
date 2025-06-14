@@ -97,6 +97,18 @@ return {
 				map('n', "<leader>sgs", function() Snacks.picker.git_status() end, { desc = "[S]tatus" })
 				map('n', "<leader>sgS", function() Snacks.picker.git_stash() end, { desc = "[S]tash" })
 				map('n', "<leader>sgd", function() Snacks.picker.git_diff() end, { desc = "[D]iff (Hunks)" })
+
+				-- Toggles
+				Snacks.toggle.new({
+					id = "git_blame",
+					name = "[B]lame Inline",
+					get = function()
+						return require("gitsigns.config").config.current_line_blame
+					end,
+					set = function(state)
+						require("gitsigns").toggle_current_line_blame(state)
+					end,
+				}):map("<leader>ob")
 			end
 		}
 	end

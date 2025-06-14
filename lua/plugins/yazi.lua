@@ -1,7 +1,7 @@
 -- File Explorer
 return {
 	"mikavilpas/yazi.nvim",
-	event = "VimEnter",
+	event = "VimEnter";
 	dependencies = { "folke/snacks.nvim" },
 	keys = {
 		{

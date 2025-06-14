@@ -73,7 +73,6 @@ return {
 				Snacks.toggle.option("wrap", { name = "[L]ine Break" }):map("<leader>ol")
 				Snacks.toggle.option("list", { name = "[W]hitespace Guides" }):map("<leader>ow")
 
-				-- Git Toggles
 				Snacks.toggle.new({
 					id = "scroll_off",
 					name = "[C]entered Cursor",
@@ -91,15 +90,17 @@ return {
 				}):map("<leader>oc")
 
 				Snacks.toggle.new({
-					id = "git_blame",
-					name = "[B]lame Inline",
-					get = function()
-						return require("gitsigns.config").config.current_line_blame
+					id = 'indentguides',
+					name = '[I]ndent Guides',
+					get = function() return Snacks.indent.enabled end,
+					set = function (state)
+						if state then
+							Snacks.indent.enable()
+						else
+							Snacks.indent.disable()
+						end
 					end,
-					set = function(state)
-						require("gitsigns").toggle_current_line_blame(state)
-					end,
-				}):map("<leader>ob")
+				}):map("<leader>oi")
 			end,
 		})
 
@@ -141,7 +142,7 @@ return {
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 					end,
 				})
-				:map("<leader>oi")
+				:map("<leader>oI")
 			end
 		})
 	end,
@@ -152,7 +153,6 @@ return {
 		git = { enabled = true },
 		lazygit = { enabled = true },
 		notify = { enabled = true },
-		dim = { enabled = true },
 		terminal = { enabled = true },
 
 		toggle = { notify = false },
@@ -168,6 +168,14 @@ return {
 				diagnostics = true,
 				inlay_hints = false,
 			},
+		},
+		dim = {
+			enabled = true,
+			animate = { enabled = false },
+		},
+		indent = {
+			enabled = false,
+			animate = { enabled = false },
 		},
 		styles = {
 			blame_line = {
