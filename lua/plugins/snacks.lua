@@ -22,6 +22,8 @@ return {
 		-- File Search
 		{ '<leader>ff', function() Snacks.picker.files() end, desc = '[F]ind (cwd)' },
 		{ '<leader>fF', function() Snacks.picker.files({ cwd = '~' }) end, desc = '[F]ind (root)' },
+		{ '<leader>ft', function() Snacks.picker.explorer({ layout = 'right' }) end, desc = '[T]ree (cwd)' },
+		{ '<leader>fT', function() Snacks.picker.explorer({ cwd = '~' , layout = 'right' }) end, desc = '[T]ree (root)' },
 		{ '<leader>fr', function() Snacks.picker.recent() end, desc = '[R]ecent' },
 		{ '<leader>fp', function() Snacks.picker.projects() end, desc = '[P]rojects' },
 		{ '<leader>fc', function() Snacks.picker.files({ cwd = vim.fn.stdpath('config')}) end, desc = '[C]onfig' },
@@ -218,6 +220,27 @@ return {
 						height = winheight,
 					},
 				},
+				sidebar = {
+					preview = false;
+					layout = {
+						backdrop = false,
+						width = 40,
+						min_width = 40,
+						height = 0,
+						position = "left",
+						border = "none",
+						box = "vertical",
+						{
+							win = "input",
+							height = 1,
+							border = "rounded",
+							title = "{title} {live} {flags}",
+							title_pos = "center",
+						},
+						{ win = "list", border = "none" },
+						{ win = "preview", title = "{preview}", height = 0.4, border = "top" },
+					},
+				}
 			},
 		},
 		dashboard = {
