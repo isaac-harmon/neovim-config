@@ -36,7 +36,7 @@ return {
 		{ '<leader>fS', function() Snacks.picker.grep_word({ cwd = '~' }) end, desc = '[G]rep Selection (root)' },
 
 		-- Vim
-		{ '<leader>va', function() Snacks.picker.autocmds({ layout = 'select' }) end, desc = '[C]ommands' },
+		{ '<leader>va', function() Snacks.picker.autocmds({ layout = 'select' }) end, desc = '[A]uto Commands' },
 		{ '<leader>vc', function() Snacks.picker.commands({ layout = 'select' }) end, desc = '[C]ommands' },
 		{ '<leader>vC', function() Snacks.picker.command_history({ layout = 'select' }) end, desc = '[C]ommand History' },
 		{ '<leader>vh', function() Snacks.picker.help() end, desc = '[H]elp Tags' },
